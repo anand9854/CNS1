@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Simple CMS</title>
+</head>
+<body>
+    <header>
+        <h1>Content Management System</h1>
+    </header>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post[1] }}</h2>
+                <p>{{ post[2] }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_post_route') }}" class="btn">Add a Post</a>
+</body>
+</html>
